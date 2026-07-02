@@ -1,0 +1,37 @@
+# Data files (too large)
+candidates.jsonl
+*.jsonl
+
+# Sample data
+sample_candidates.json
+sample_submission.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep these files
+!team_redrob_submission.csv
+!team_redrob_detailed.csv
+!app.py
+!submission_metadata.yaml
+!README.md
+!*.py

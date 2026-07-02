@@ -1,0 +1,92 @@
+team_name: "Data Science Redrob"
+submission_version: "1.0"
+submission_date: "2026-06-22"
+
+algorithm:
+  name: "Multi-Phase Candidate Ranking Pipeline"
+  phases: 9
+  total_candidates: 100000
+  top_candidates: 100
+  
+features:
+  technical:
+    - name: "Retrieval Fit"
+      weight: 0.25
+      description: "Searches for retrieval/ranking keywords in profile"
+    - name: "Production AI"
+      weight: 0.15
+      description: "Detects deployed systems and production experience"
+    - name: "YOE Fit"
+      weight: 0.12
+      description: "5-9 years ideal, 3-15 acceptable"
+    - name: "Must-Have Skills"
+      weight: 0.12
+      description: "Python, NLP, ML, retrieval, ranking, embeddings"
+    - name: "Vector DB Experience"
+      weight: 0.10
+      description: "Pinecone, Milvus, Weaviate, Faiss, etc."
+    - name: "Product Company"
+      weight: 0.08
+      description: "Startup/SaaS experience preferred"
+    - name: "AI Skill Count"
+      weight: 0.05
+      description: "Breadth of AI knowledge"
+  
+  behavioral:
+    - name: "Response Rate"
+      weight: 0.10
+      description: "Recruiter message response rate"
+    - name: "GitHub Activity"
+      weight: 0.02
+      description: "Code contribution signal"
+    - name: "Interview Completion"
+      weight: 0.01
+      description: "Interview follow-through rate"
+    - name: "Availability"
+      weight: 0.01
+      description: "Notice period and open to work status"
+  
+  anomaly_detection:
+    - name: "Honeypot Penalty"
+      max_penalty: 0.4
+      description: "Detects inflated/impossible profiles"
+
+scoring:
+  formula: "weighted_average(technical, behavioral) - honeypot_penalty"
+  max_score: 1.0
+  top_score: 0.8828
+  percentile_100: 0.7315
+
+validation:
+  method: "validate_submission.py"
+  status: "VALID"
+  rows: 100
+  columns: ["candidate_id", "rank", "score", "reasoning"]
+
+key_decisions:
+  - "Stream processing for 100k candidates (memory efficient)"
+  - "Retrieval focus (25%) as JD explicitly seeks retrieval engineers"
+  - "Production AI detection (15%) to filter theoretical-only work"
+  - "YOE band 5-9 years (12%) aligned to JD specification"
+  - "Behavioral signals (13%) often ignored by competitors"
+  - "Honeypot detection (up to -0.4) for data quality"
+  - "Real-fact reasoning only (no hallucination risk)"
+
+files_generated:
+  - "team_redrob_submission.csv"
+  - "team_redrob_detailed.csv"
+  - "feature_extractor.py"
+  - "behavior_score.py"
+  - "honeypot_penalty.py"
+  - "candidate_ranker.py"
+  - "reasoning_generator.py"
+  - "submission_generator_optimized.py"
+  - "README.md"
+  - "submission_metadata.yaml"
+
+quality_metrics:
+  - "100% submission validity"
+  - "All candidates have retrieval/ranking focus"
+  - "Average YOE of top 100: 6.8 years (ideal)"
+  - "Honeypot penalty filters suspicious profiles"
+  - "Reasoning traceable to actual profile data"
