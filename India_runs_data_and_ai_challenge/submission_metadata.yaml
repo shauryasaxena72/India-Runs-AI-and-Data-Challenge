@@ -63,6 +63,8 @@ validation:
   rows: 100
   columns: ["candidate_id", "rank", "score", "reasoning"]
 
+sandbox_link: "https://huggingface.co/spaces/ShauryaSaxena72/redrob-ranker"
+
 key_decisions:
   - "Stream processing for 100k candidates (memory efficient)"
   - "Retrieval focus (25%) as JD explicitly seeks retrieval engineers"
