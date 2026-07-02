@@ -1,6 +1,79 @@
-team_name: "Data Science Redrob"
+# Redrob Hackathon — Submission Metadata
+# India Runs Data & AI Challenge - Candidate Ranking Solution
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "Godhand Killer"
+
+primary_contact:
+  name: "Shaurya Saxena"
+  email: "shaurya.saxena72@gmail.com"
+  phone: "+91-8791027377"
+
+team_members:
+  - name: "Shaurya Saxena"
+    email: "shaurya.saxena72@gmail.com"
+    role: "Solo Participant"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/shauryasaxena72/India-Runs-AI-and-Data-Challenge"
+
+sandbox_link: "https://huggingface.co/spaces/ShauryaSaxena72/redrob-ranker"
+
+reproduce_command: "python submission_generator_optimized.py"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Windows 11"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Claude"
+  - "GitHub Copilot"
+
+ai_usage_summary: |
+  Used Claude for architecture design, code review, and feature engineering strategy. 
+  Used GitHub Copilot for autocomplete during implementation. 
+  No candidate data was fed to any LLM. All ranking logic is rule-based with explicit scoring.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Multi-phase candidate ranking pipeline scoring 100,000 candidates on 7 technical features 
+  (retrieval focus 25%, production AI 15%, YOE fit 12%, must-have skills 12%, vector DB 10%, 
+  product company 8%, AI skill count 5%) plus 4 behavioral signals (13% combined) minus honeypot 
+  penalties. Stream-based processing (O(n log k) memory) completes in ~5 minutes. Explicitly checks 
+  for impossible skill durations, career timeline mismatches, and exaggerated endorsements. 
+  Top 100 candidates averaged 6.8 years YOE (ideal range 5-9 years per JD).
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
+
 submission_version: "1.0"
-submission_date: "2026-06-22"
+submission_date: "2026-07-02"
 
 algorithm:
   name: "Multi-Phase Candidate Ranking Pipeline"
